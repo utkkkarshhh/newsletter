@@ -31,7 +31,7 @@ app.post('/', (req, res) => {
     const url = "https://us20.api.mailchimp.com/3.0/lists/2512bc0c5d"
     const options = {
       method: 'POST',
-      auth: "utkarsh:bdca8533c4187b75738b5a5987fd3af0-us20"
+      auth: "utkarsh:c73850a5c788e8e18712514cca521506-us20"
     }
 
     const request = https.request(url, options, function(response){
@@ -52,8 +52,12 @@ app.post('/', (req, res) => {
 
 });
 
+app.post("/failure", function(req, res) {
+  res.redirect("/")
+})
 
-app.listen(port, () => {
+
+app.listen(process.env.PORT || port , () => {
   console.log(`Server is live on port:${port}`)
 })
 
